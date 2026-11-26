@@ -16,6 +16,7 @@
   <nav aria-label="Main">
     <a href="#writing">Writing</a>
     <a href="#tools">Tools</a>
+    <a href="#assistant">Assistant</a>
     <a href="#data">Data</a>
     <a href="#about">About</a>
   </nav>
@@ -64,16 +65,42 @@
     </div>
   </section>
 
-  <section id="data" class="block">
+  <section id="assistant" class="block">
+    <h2>Trade idea assistant</h2>
+    <p class="hint">An AI model that runs entirely in your browser. Pick a model, download it once, and it loads from your device cache next time. Nothing you type leaves your machine. It is for brainstorming and education, not advice.</p>
+    <div class="chat">
+      <div class="chat-setup">
+        <label>Model<select id="m-select"></select></label>
+        <button class="btn" id="m-load" type="button">Download and load</button>
+        <button class="btn ghost" id="m-del" type="button" hidden>Delete cached model</button>
+        <div class="bar" hidden><div id="m-bar"></div></div>
+        <p id="m-status" class="hint" role="status" aria-live="polite"></p>
+        <label>Your portfolio and constraints (optional, added to every chat)
+          <textarea id="m-ctx" rows="3" placeholder="e.g. $250k, 60% BTC / 30% ETH spot, max drawdown 20%, no leverage above 2x"></textarea>
+        </label>
+      </div>
+      <div class="chat-main">
+        <div id="log" class="log" aria-live="polite"></div>
+        <div class="chips" id="chips"></div>
+        <div class="send">
+          <textarea id="msg" rows="2" placeholder="Ask about a trade idea or portfolio structure" disabled></textarea>
+          <button class="btn" id="send" type="button" disabled>Send</button>
+          <button class="btn ghost" id="stop" type="button" hidden>Stop</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="data" class="block alt">
     <h2>Data</h2>
     <p class="hint">Sample datasets showing the format. Replace the files or the entries in <code>app.js</code> with your own.</p>
     <ul class="datasets" id="datasets"></ul>
   </section>
 
-  <section id="about" class="block alt about">
+  <section id="about" class="block about">
     <h2>About</h2>
     <p>I write about how leverage, funding and positioning shape crypto markets. My work is research and education, not investment advice.</p>
-    <p><a class="btn" href="mailto:samreedcole7@gmail.com">Get in touch</a></p>
+    <p><a class="btn" href="mailto:you@example.com">Get in touch</a></p>
   </section>
 </main>
 
@@ -81,5 +108,6 @@
   <p>© <span id="yr"></span> PerpPerspective. Not financial advice. Derivatives carry a high risk of loss.</p>
 </footer>
 <script src="app.js"></script>
+<script type="module" src="chat.js"></script>
 </body>
 </html>

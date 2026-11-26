@@ -59,3 +59,23 @@ footer{padding:1.5rem clamp(1rem,5vw,4rem);border-top:1px solid var(--line);colo
 code{background:var(--alt);padding:.1rem .3rem;border-radius:3px}
 @media (max-width:800px){.hero{grid-template-columns:1fr}nav a{margin:0 1rem 0 0}}
 @media (prefers-reduced-motion:reduce){#curve .line{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+.chat{display:grid;grid-template-columns:minmax(240px,1fr) 2fr;gap:1.5rem;align-items:start}
+.chat-setup,.chat-main{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.25rem}
+.chat label{display:block;font-size:.9rem;color:var(--muted);margin-bottom:.75rem}
+.chat select,.chat textarea{display:block;width:100%;margin-top:.25rem;padding:.55rem .6rem;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;resize:vertical}
+.chat button:disabled{opacity:.45;cursor:not-allowed}
+.chat button{font:inherit;cursor:pointer;border:0}
+.chat .btn.ghost{border:1px solid var(--ink)}
+.bar{height:8px;background:var(--alt);border-radius:4px;overflow:hidden;margin:.75rem 0}
+#m-bar{height:100%;width:0;background:var(--accent);transition:width .2s}
+.log{min-height:18rem;max-height:32rem;overflow-y:auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:.5rem}
+.msg{max-width:90%;padding:.7rem .9rem;border-radius:6px;white-space:pre-wrap;line-height:1.55}
+.msg.user{align-self:flex-end;background:var(--ink);color:var(--bg)}
+.msg.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--line);font-family:var(--serif);font-size:1.05rem}
+.msg.note{align-self:center;color:var(--muted);font-size:.9rem;text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+.chips button{padding:.35rem .8rem;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;font-size:.9rem}
+.send{display:flex;gap:.5rem;align-items:flex-end}
+.send textarea{margin:0;flex:1}
+.send .btn{margin:0}
+@media (max-width:800px){.chat{grid-template-columns:1fr}}
