@@ -1,0 +1,61 @@
+:root{
+  --bg:#edf1f4; --alt:#e0e7ec; --ink:#0f1c2b; --muted:#506072; --line:#c3cfd9;
+  --accent:#0b7a75; --warn:#b4600f; --card:#f8fafb;
+  --serif:"Newsreader",Georgia,serif; --sans:"IBM Plex Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1a26; --alt:#142231; --ink:#e6edf3; --muted:#9fb0c0; --line:#2a3d50; --accent:#4cc9c0; --warn:#f0a35a; --card:#182a3b}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem clamp(1rem,5vw,4rem);border-bottom:1px solid var(--line)}
+.brand{font:600 1.15rem var(--sans);text-decoration:none;letter-spacing:-.01em}
+nav a{margin-left:1.25rem;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero,.block{padding:clamp(2.5rem,7vw,5rem) clamp(1rem,5vw,4rem)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+h1{font:600 clamp(2.6rem,7vw,5.2rem)/1 var(--serif);letter-spacing:-.025em;margin:0 0 1.25rem}
+h2{font:600 clamp(1.8rem,4vw,2.6rem)/1.1 var(--serif);margin:0 0 1.5rem}
+h3{font:600 1.15rem var(--sans);margin:0 0 .25rem}
+.lede{font:400 1.25rem/1.5 var(--serif);max-width:34rem;color:var(--muted)}
+.btn{display:inline-block;padding:.7rem 1.2rem;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:4px;font-weight:500;margin:.25rem .5rem .25rem 0}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hero-chart{margin:0;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem}
+#curve{width:100%;height:auto;display:block;touch-action:none}
+#curve .grid{stroke:var(--line);stroke-width:1}
+#curve .zero{stroke:var(--muted);stroke-dasharray:4 4}
+#curve .line{fill:none;stroke:var(--accent);stroke-width:3;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.6s ease-out forwards}
+#curve text{fill:var(--muted);font:12px var(--sans)}
+#curve .dot{fill:var(--accent);stroke:var(--bg);stroke-width:2}
+@keyframes draw{to{stroke-dashoffset:0}}
+figcaption{font-size:.9rem;color:var(--muted);margin-top:.5rem;min-height:2.7em}
+.alt{background:var(--alt)}
+.hint{color:var(--muted);margin:.25rem 0 1rem;max-width:40rem}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.filters button{font:inherit;padding:.4rem .9rem;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.posts{list-style:none;padding:0;margin:0;max-width:46rem}
+.posts li{padding:1.5rem 0;border-top:1px solid var(--line)}
+.posts h3{font:600 1.5rem/1.25 var(--serif)}
+.posts a{text-decoration:none}
+.posts a:hover h3{text-decoration:underline}
+.meta{font-size:.9rem;color:var(--muted);margin:.25rem 0 .5rem}
+.posts p{margin:0;font-family:var(--serif);font-size:1.1rem}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.5rem}
+.tool label{display:block;font-size:.9rem;color:var(--muted);margin-top:.9rem}
+.tool input,.tool select{display:block;width:100%;margin-top:.25rem;padding:.55rem .6rem;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px}
+output{display:block;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);font-size:1.05rem}
+output strong{font:600 1.8rem var(--serif);display:block;color:var(--accent)}
+output strong.neg{color:var(--warn)}
+.datasets{list-style:none;padding:0;margin:0;display:grid;gap:1rem;max-width:46rem}
+.datasets li{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.datasets p{margin:0;color:var(--muted);font-size:.95rem}
+.about p{max-width:36rem;font:1.2rem/1.55 var(--serif)}
+footer{padding:1.5rem clamp(1rem,5vw,4rem);border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+code{background:var(--alt);padding:.1rem .3rem;border-radius:3px}
+@media (max-width:800px){.hero{grid-template-columns:1fr}nav a{margin:0 1rem 0 0}}
+@media (prefers-reduced-motion:reduce){#curve .line{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}

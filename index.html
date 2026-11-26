@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PerpPerspective: crypto derivatives research and tools</title>
+<meta name="description" content="Independent thinking on crypto perpetuals, futures and options, plus calculators and datasets for investors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top">PerpPerspective</a>
+  <nav aria-label="Main">
+    <a href="#writing">Writing</a>
+    <a href="#tools">Tools</a>
+    <a href="#data">Data</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Perpetuals, read closely.</h1>
+      <p class="lede">Independent research on crypto derivatives: funding, basis, open interest and the positioning behind price. Written for investors who size risk before they chase returns.</p>
+      <p><a class="btn" href="#writing">Read the latest</a> <a class="btn ghost" href="#tools">Open the tools</a></p>
+    </div>
+    <figure class="hero-chart">
+      <svg id="curve" viewBox="0 0 520 300" role="img" aria-label="Illustrative futures basis term structure"></svg>
+      <figcaption id="curve-cap">Illustrative annualized basis by expiry. Hover or tap the curve.</figcaption>
+    </figure>
+  </section>
+
+  <section id="writing" class="block">
+    <h2>Writing</h2>
+    <div class="filters" id="filters" role="group" aria-label="Filter by topic"></div>
+    <ol class="posts" id="posts"></ol>
+  </section>
+
+  <section id="tools" class="block alt">
+    <h2>Tools</h2>
+    <div class="tools">
+      <form class="tool" id="funding" onsubmit="return false">
+        <h3>Funding rate annualizer</h3>
+        <p class="hint">Turn a periodic perpetual funding rate into an annual carry figure.</p>
+        <label>Funding rate per interval (%)<input type="number" id="f-rate" value="0.01" step="0.001"></label>
+        <label>Interval
+          <select id="f-int"><option value="8">8 hours</option><option value="4">4 hours</option><option value="1">1 hour</option></select>
+        </label>
+        <label>Position size (USD)<input type="number" id="f-size" value="100000" step="1000"></label>
+        <output id="f-out" aria-live="polite"></output>
+      </form>
+      <form class="tool" id="basis" onsubmit="return false">
+        <h3>Futures basis calculator</h3>
+        <p class="hint">Annualized cash-and-carry yield from spot and a dated future.</p>
+        <label>Spot price<input type="number" id="b-spot" value="95000" step="10"></label>
+        <label>Futures price<input type="number" id="b-fut" value="97100" step="10"></label>
+        <label>Days to expiry<input type="number" id="b-days" value="90" min="1"></label>
+        <output id="b-out" aria-live="polite"></output>
+      </form>
+    </div>
+  </section>
+
+  <section id="data" class="block">
+    <h2>Data</h2>
+    <p class="hint">Sample datasets showing the format. Replace the files or the entries in <code>app.js</code> with your own.</p>
+    <ul class="datasets" id="datasets"></ul>
+  </section>
+
+  <section id="about" class="block alt about">
+    <h2>About</h2>
+    <p>I write about how leverage, funding and positioning shape crypto markets. My work is research and education, not investment advice.</p>
+    <p><a class="btn" href="mailto:you@example.com">Get in touch</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="yr"></span> PerpPerspective. Not financial advice. Derivatives carry a high risk of loss.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
